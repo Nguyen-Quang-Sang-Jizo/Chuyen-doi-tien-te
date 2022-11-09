@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+<Table>
+    <tr>
+        <th>Amount</th>
+        <th></th>
+        <th>From Currency</th>
+        <th></th>
+        <th>To Currency</th>
+    </tr>
+    <tr>
+        <td>
+            <input id="giaTriVao" type="text">
+        </td>
+        <td></td>
+        <td>
+            <select id="select1">
+                <option  value="VND">VND</option>
+                <option  value="USD">USD</option>
+            </select>
+        </td>
+        <td></td>
+        <td>
+            <select id="select2">
+                <option  value="VND">VND</option>
+                <option  value="USD">USD</option>
+            </select>
+        </td>
+        <td></td>
+        <td>
+            <button type="submit" onclick="doi()">Convert</button>
+        </td>
+    </tr>
+</Table>
+<p id="ketQua"></p>
+<script>
+    function doi() {
+        let Tien = document.getElementById('giaTriVao').value;
+        let select1 = document.getElementById('select1').value;
+        let select2 = document.getElementById('select2').value;
+        let result;
+        if (select1 == select2) {
+            result = Tien;
+            document.getElementById('ketQua').innerHTML = 'Ket qua la : ' + result;
+        }
+        if (select1 == 'VND' && select2 == 'USD') {
+            result = Tien / 23000;
+            document.getElementById('ketQua').innerHTML = 'Ket qua la : ' + result;
+        }
+        if(select1 == 'USD' && select2 == 'VND'){
+            result = Tien * 23000;
+            document.getElementById('ketQua').innerHTML = 'Ket qua  la : ' +result;
+        }
+    }
+</script>
+</body>
+</html>
