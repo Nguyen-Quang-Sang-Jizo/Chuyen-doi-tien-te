@@ -20,42 +20,33 @@
         <td></td>
         <td>
             <select id="select1">
-                <option  value="VND">VND</option>
-                <option  value="USD">USD</option>
+                <option value="1">VND</option>
+                <option value="23000">USD</option>
             </select>
         </td>
         <td></td>
         <td>
             <select id="select2">
-                <option  value="VND">VND</option>
-                <option  value="USD">USD</option>
+                <option value="1">VND</option>
+                <option value="23000">USD</option>
             </select>
         </td>
         <td></td>
         <td>
-            <button type="submit" onclick="doi()">Convert</button>
+            <button onclick="doi()">Convert</button>
         </td>
     </tr>
+
+
 </Table>
-<p id="ketQua"></p>
+<input id="ketQua" type="text" readonly>
 <script>
     function doi() {
-        let Tien = document.getElementById('giaTriVao').value;
-        let select1 = document.getElementById('select1').value;
-        let select2 = document.getElementById('select2').value;
-        let result;
-        if (select1 == select2) {
-            result = Tien;
-            document.getElementById('ketQua').innerHTML = 'Ket qua la : ' + result;
-        }
-        if (select1 == 'VND' && select2 == 'USD') {
-            result = Tien / 23000;
-            document.getElementById('ketQua').innerHTML = 'Ket qua la : ' + result;
-        }
-        if(select1 == 'USD' && select2 == 'VND'){
-            result = Tien * 23000;
-            document.getElementById('ketQua').innerHTML = 'Ket qua  la : ' +result;
-        }
+        let money = +document.getElementById('giaTriVao').value;
+        let curr = +document.getElementById('select1').value;
+        let des = +document.getElementById('select2').value;
+        let result = money * curr / des;
+        document.getElementById('ketQua').value = result;
     }
 </script>
 </body>
